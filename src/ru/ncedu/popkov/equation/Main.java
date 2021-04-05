@@ -8,7 +8,7 @@ package ru.ncedu.popkov.equation;
 public class Main {
 
     public static void main(String[] args) {
-	    Equation equation = new Equation(3, -14, -5);
+	    Equation equation = new Equation(14, 15, 1);
         System.out.println(equation.solve());
     }
 }

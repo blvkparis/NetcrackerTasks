@@ -1,5 +1,10 @@
 package ru.ncedu.popkov.dice;
 
+/**
+ * Represents DiceGame Class
+ *
+ * @author Anton Popkov
+ */
 public class DiceGame {
     private int N;
     private int K;
@@ -7,6 +12,12 @@ public class DiceGame {
     private int rounds;
     private Computer computer;
 
+    /**
+     * Constructor for DiceGame
+     *
+     * @param n - number of Players
+     * @param k - number of dice
+     */
     public DiceGame(int n, int k) {
         N = n;
         K = k;
@@ -15,6 +26,9 @@ public class DiceGame {
         rounds = 1;
     }
 
+    /**
+     * Method that create Players based on a number of Players
+     */
     private void setPlayers() {
         for (int i = 0; i < N; i++) {
             players[i] = new Player();
@@ -22,6 +36,9 @@ public class DiceGame {
         }
     }
 
+    /**
+     * Method that represents playing a dice game
+     */
     public void playGame() {
         setPlayers();
         while (rounds <= 7) {
@@ -48,6 +65,9 @@ public class DiceGame {
         System.out.println("Game over! " + winner + " has won the game with " + winner.getWins() + " wins!");
     }
 
+    /**
+     * Method that counting maximum score from all the players and showing the winner of the round
+     */
     private void getMaxScore() {
         int maxScore = -1;
         int index = 0;
@@ -75,6 +95,11 @@ public class DiceGame {
         players[0] = temp;
     }
 
+    /**
+     * Method that find the winner of the DiceGame
+     *
+     * @return - Player (winner)
+     */
     public Player getWinner() {
         Player player = players[0];
         int wins = 0;

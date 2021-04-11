@@ -2,11 +2,17 @@ package ru.ncedu.popkov.dice;
 
 import java.util.Scanner;
 
+/**
+ * Represents Player Class
+ */
 public class Player {
     private int score;
     private int wins;
     private int playerIndex;
 
+    /**
+     * Constructor
+     */
     public Player() {
         score = 0;
         wins = 0;
@@ -36,6 +42,12 @@ public class Player {
         this.playerIndex = playerIndex;
     }
 
+    /**
+     * Method that allow Player to roll the dice
+     *
+     * @param dice - number of dice
+     * @return - score
+     */
     public int rollDice(int dice) {
         Scanner scanner = new Scanner(System.in);
 

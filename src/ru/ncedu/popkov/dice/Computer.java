@@ -1,11 +1,17 @@
 package ru.ncedu.popkov.dice;
 
-import java.util.Scanner;
-
+/**
+ * Represents Computer class
+ *
+ * @author Anton Popkov
+ */
 public class Computer {
     private int score;
     private int wins;
 
+    /**
+     * Constructor for computer
+     */
     public Computer() {
         score = 0;
         wins = 0;
@@ -27,6 +33,12 @@ public class Computer {
         this.wins = wins;
     }
 
+    /**
+     * Method for rolling the dice by Computer
+     *
+     * @param dice - number of dice
+     * @return - score
+     */
     public int rollDice(int dice) {
         for (int i = 0; i < dice; i++) {
             int random = (1 + (int) (Math.random() * 6));

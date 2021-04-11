@@ -3,9 +3,12 @@ package ru.ncedu.popkov.address;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-
+/**
+ * The main class of the program
+ *
+ * @author Anton Popkov
+ */
 public class AddressMain {
-
     public static void main(String[] args) {
         ArrayList<Person> people = new ArrayList<>();
 
@@ -35,22 +38,25 @@ public class AddressMain {
         people.add(person4);
         people.add(person5);
 
-        /*System.out.println("Task 1:");
-        Person.searchBySurname();
-        //Task_2
+        //Task1
+        System.out.println("Task 1:");
+        System.out.println(Person.searchBySurname(people, "Reznikov"));
+
+        //Task2
         System.out.println("\n\nTask 2:");
-        findHumanByAddressAttribute(people, "city", "moscow");
-        //Task_3
+        System.out.println(Person.searchByCity(people, "Moscow"));
+
+        //Task3
         System.out.println("\n\nTask 3:");
-        findPeopleAmongDates(people, "2000-01-01", "2021-04-02");
-        //Task_4
+        Person.searchBetweenDates(people, LocalDate.of(1999, 10, 10),
+                LocalDate.of(2003, 5, 5));
+
+        //Task4
         System.out.println("\n\nTask 4:");
-        findElderHuman(people);
-        //Task_5
+        System.out.println(Person.findOldest(people));
+
+        //Task5
         System.out.println("\n\nTask 5:");
-        findPeopleByCommonStreet(people);*/
+        Person.findByCommonStreet(people, "Pushkina");
     }
-
-
-
 }

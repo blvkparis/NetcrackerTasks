@@ -1,5 +1,8 @@
 package ru.ncedu.popkov.voice;
 
+/**
+ * Main class for testing {@link Voice} interface
+ */
 public class Main {
     public static void main(String[] args) {
         Voice cat = new Cat();

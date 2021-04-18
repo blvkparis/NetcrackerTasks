@@ -15,8 +15,8 @@ public class DiceGame {
     /**
      * Constructor for DiceGame
      *
-     * @param n - number of Players
-     * @param k - number of dice
+     * @param n number of Players
+     * @param k number of dice
      */
     public DiceGame(int n, int k) {
         N = n;
@@ -98,7 +98,7 @@ public class DiceGame {
     /**
      * Method that find the winner of the DiceGame
      *
-     * @return - Player (winner)
+     * @return Player (winner)
      */
     public Player getWinner() {
         Player player = players[0];

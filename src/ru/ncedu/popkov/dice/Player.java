@@ -45,8 +45,8 @@ public class Player {
     /**
      * Method that allow Player to roll the dice
      *
-     * @param dice - number of dice
-     * @return - score
+     * @param dice number of dice
+     * @return score
      */
     public int rollDice(int dice) {
         Scanner scanner = new Scanner(System.in);

@@ -36,8 +36,8 @@ public class Computer {
     /**
      * Method for rolling the dice by Computer
      *
-     * @param dice - number of dice
-     * @return - score
+     * @param dice number of dice
+     * @return score
      */
     public int rollDice(int dice) {
         for (int i = 0; i < dice; i++) {

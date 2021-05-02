@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  */
 public class WordCounterImpl implements WordCounter {
     private String text;
-    private Map<String, Long> words = new HashMap<>();
+    private final Map<String, Long> wordCounts = new HashMap<>();
 
     @Override
     public void setText(String text) {
@@ -39,39 +39,35 @@ public class WordCounterImpl implements WordCounter {
         String[] lines = text.split("\\s+");
 
         for (String word : lines) {
-            Long count = 1L;
             String lower = word.toLowerCase(Locale.ROOT);
 
             if (lower.startsWith("<") && lower.endsWith(">"))
                 continue;
 
             if (lower.length() > 1) {
-                if (words.containsKey(lower)) {
-                    words.put(lower, words.get(lower) + 1L);
-                } else words.put(lower, count);
+                wordCounts.merge(lower, 1L, Long::sum);
             }
         }
 
-        return words;
+        return wordCounts;
     }
 
     @Override
     public List<Map.Entry<String, Long>> getWordCountsSorted() {
+        if (getText() == null)
+            throw new IllegalStateException();
 
-        //List<Map.Entry<String, Long>> list = new ArrayList<>(words.entrySet());
-        //list.sort(new WordCounterImpl<>());
+        List<Map.Entry<String, Long>> list = this.sort(wordCounts, Map.Entry.<String, Long>comparingByValue()
+                .thenComparing(Map.Entry.comparingByKey()).reversed());
 
-        List<Map.Entry<String, Long>> sortedList = new ArrayList<>(words.entrySet());
-        sortedList.sort(Collections.reverseOrder(Map.Entry.comparingByValue()));
-
-        return sortedList;
+        return list;
     }
 
     @Override
     public <K extends Comparable<K>, V extends Comparable<V>> List<Map.Entry<K, V>> sort(Map<K, V> map, Comparator<Map.Entry<K, V>> comparator) {
         List<Map.Entry<K, V>> sortedList = new ArrayList<>(map.entrySet());
 
-        sortedList.sort(Collections.reverseOrder(comparator));
+        sortedList.sort(comparator);
         return sortedList;
     }
 

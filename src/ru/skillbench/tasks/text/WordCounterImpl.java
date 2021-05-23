@@ -11,10 +11,12 @@ import java.util.regex.Pattern;
 public class WordCounterImpl implements WordCounter {
     private String text;
     private final Map<String, Long> wordCounts = new HashMap<>();
+    private boolean isTextModified = false;
 
     @Override
     public void setText(String text) {
         this.text = text;
+        isTextModified = true;
     }
 
     @Override
@@ -73,8 +75,9 @@ public class WordCounterImpl implements WordCounter {
 
     @Override
     public <K, V> void print(List<Map.Entry<K, V>> entries, PrintStream ps) {
-        for (Map.Entry<K, V> me : entries) {
-            ps.println(me.getKey() + " " + me.getValue());
+        for (Map.Entry<K, V> entry : entries) {
+            ps.println(entry.getKey().toString().toLowerCase(Locale.ROOT) + " " +
+                    entry.getValue().toString());
         }
     }
 }
